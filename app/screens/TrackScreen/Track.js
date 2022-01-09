@@ -35,9 +35,13 @@ export default function Track() {
         const currentLongitude = JSON.stringify(position.coords.longitude);
         //getting the Latitude from the location json
         const currentLatitude = JSON.stringify(position.coords.latitude);
+
+        const lat_long = {
+          latitude: parseFloat(currentLatitude),
+          longitude: parseFloat(currentLongitude),
+        };
         //* make sure your emulator has been set on right location
-        setMyloc({latitude: currentLatitude, longitude: currentLongitude});
-        console.log(`lat :${currentLongitude}, lon :${currentLatitude}`);
+        setMyloc(lat_long);
       },
       error => alert(error.message),
       {
